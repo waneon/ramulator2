@@ -27,11 +27,11 @@ include_directories(${argparse_SOURCE_DIR}/include)
 include_directories(${yaml-cpp_SOURCE_DIR}/include)
 
 # targets
-include_directories(${CMAKE_SOURCE_DIR}/src)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src)
 
 add_library(ramulator SHARED)
 target_link_libraries(ramulator PUBLIC yaml-cpp spdlog)
-target_include_directories(ramulator PUBLIC src)
+target_include_directories(ramulator PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 add_executable(ramulator-exe)
 target_link_libraries(ramulator-exe PUBLIC ramulator argparse)
